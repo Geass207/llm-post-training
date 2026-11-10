@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "posttrain"
+version = "0.1.0"
+description = "Post-training small language models: supervised fine-tuning, tool calling, DPO and GRPO"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Mohamed Kassoul" }]
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.4",
+    "transformers>=5.18",
+    "datasets>=3.0",
+    "peft>=0.21",
+    "trl>=1.15",
+    "accelerate>=1.15",
+    "bitsandbytes>=0.50",
+    "tqdm",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+tracking = ["wandb"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "tests"]
+testpaths = ["tests"]

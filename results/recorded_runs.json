@@ -1,0 +1,56 @@
+{
+  "hardware": "single NVIDIA T4 (16 GB)",
+  "sft_summarization": {
+    "model": "Qwen/Qwen3.5-0.8B-Base",
+    "dataset": "giuliadc/orangesum_5k",
+    "train_examples": 4934,
+    "heldout_examples": 50,
+    "quantization": "4-bit NF4, double quantization",
+    "lora": {"rank": 32, "alpha": 64, "dropout": 0.1},
+    "trainable_parameters": 21645312,
+    "total_parameters": 774038336,
+    "optimizer_steps": 100,
+    "effective_batch_size": 8,
+    "learning_rate": 0.0005,
+    "train_runtime_seconds": 1379,
+    "heldout_loss": {"0": 2.331084, "25": 2.295261, "50": 2.300281, "75": 2.212023, "100": 2.174350},
+    "relative_loss_reduction": 0.0672
+  },
+  "sft_tool_calling": {
+    "model": "Qwen/Qwen3.5-0.8B-Base",
+    "dataset": "llamafactory/glaive_toolcall_en",
+    "train_conversations": 670,
+    "optimizer_steps": 50,
+    "effective_batch_size": 8,
+    "train_runtime_seconds": 449,
+    "train_loss": {"10": 0.754103, "20": 0.307368, "30": 0.228708, "40": 0.244699, "50": 0.157957}
+  },
+  "dpo": {
+    "model": "Qwen/Qwen3-0.6B",
+    "dataset": "AIffl/french_orca_dpo_pairs",
+    "preference_pairs": 981,
+    "beta": 0.1,
+    "learning_rate": 5e-06,
+    "optimizer_steps": 246,
+    "trainable_parameters": 20185088,
+    "total_parameters": 616235008
+  },
+  "grpo": {
+    "model": "Qwen/Qwen3-0.6B",
+    "dataset": "openai/gsm8k",
+    "train_problems": 200,
+    "generations_per_problem": 2,
+    "optimizer_steps": 50,
+    "learning_rate": 1e-05,
+    "kl_beta": 0.0,
+    "trainable_parameters": 40370176,
+    "total_parameters": 636420096,
+    "train_runtime_seconds": 1067,
+    "evaluation": {
+      "split": "first 200 problems of the GSM8K test set",
+      "decoding": "greedy",
+      "before": {"correct": 20, "total": 200, "accuracy": 0.100},
+      "after": {"correct": 99, "total": 200, "accuracy": 0.495}
+    }
+  }
+}

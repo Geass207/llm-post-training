@@ -7,7 +7,6 @@ name = "posttrain"
 version = "0.1.0"
 description = "Post-training small language models: supervised fine-tuning, tool calling, DPO and GRPO"
 readme = "README.md"
-license = { text = "MIT" }
 authors = [{ name = "Mohamed Kassoul" }]
 requires-python = ">=3.10"
 dependencies = [

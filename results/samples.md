@@ -1,6 +1,7 @@
 # Sample generations
 
-Outputs recorded from the runs summarised in the README. Base and adapted
+Outputs recorded from the runs summarised in the README (long answers are
+abridged, marked with "..."). Base and adapted
 models always receive the same prompt, template and decoding settings.
 
 ## Tool calling (Qwen3.5-0.8B-Base, 50 steps on Glaive conversations)

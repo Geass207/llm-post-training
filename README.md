@@ -1,4 +1,4 @@
-# LLM Post-Training: Fine-Tuning, Tool Use and Alignment
+# LLM Post-Training: Summarization, Tool Use and Alignment
 
 Four post-training experiments on sub-1B open-weight language models, each run
 on a single 16 GB GPU with 4-bit quantization and LoRA adapters:
@@ -82,7 +82,8 @@ gives more substantive explanations, but one refusal becomes weaker. No
 preference-accuracy or safety metric was computed, so no gain is claimed.
 
 All figures above are stored in
-[results/recorded_runs.json](results/recorded_runs.json).
+[results/recorded_runs.json](results/recorded_runs.json) and can be traced to the
+executed notebooks in [notebooks/](notebooks/).
 
 ## Implementation notes
 
@@ -131,13 +132,15 @@ src/posttrain/
   grpo.py       prompt construction and GRPO training
   evaluate.py   GSM8K exact match, format rates, side-by-side generations
 tests/          label masking, call parsing, tool loop, rewards, scoring
+notebooks/      the original runs with their recorded outputs
 results/        recorded metrics and sample generations
 ```
 
-The reported numbers come from the original notebook runs of these experiments
-on a T4. This package factors the same pipeline into tested modules; the
-training entry points have not been re-run end to end since the refactoring, so
-expect small differences in exact figures.
+The reported numbers come from the runs saved in [notebooks/](notebooks/),
+executed on a T4, with their training logs, loss tables and evaluation output.
+The package factors the same pipeline into tested modules; its training entry
+points have not been re-run end to end since the refactoring, so expect small
+differences in exact figures.
 
 ## Next experiments
 
